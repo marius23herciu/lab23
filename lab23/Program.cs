@@ -57,7 +57,7 @@ static void WriteOnTxtFile(string path, List<List<int>> listOfLists)
 {
     foreach (var list in listOfLists)
     {
-        File.AppendAllText(path, ListSerializer(list));
+        File.AppendAllText(path, JsonSerializer.Serialize(list));
         File.AppendAllText(path, "\n");
     }
 }
@@ -71,13 +71,6 @@ static void ReadText(string path)
     //string text = File.ReadAllText(path);
     //Console.WriteLine(text);
 }
-
-static string ListSerializer(List<int> list)
-{
-    return JsonSerializer.Serialize(list);
-}
-
-
 
 /*
  Ex2 – tasks
@@ -181,7 +174,7 @@ static List<int> SumOfEveryLine(List<List<int>> listOfLists)
 
 
 
-Console.WriteLine(ListSerializer(SumOfEveryLine(listOfLists)));
+Console.WriteLine(JsonSerializer.Serialize(SumOfEveryLine(listOfLists)));
 
 
 /*
